@@ -1,8 +1,15 @@
+import React from "react";
+import { Link } from "react-router-dom"; // should be react-router-dom, not react-router
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { Link } from "react-router";
 import { LANGUAGE_TO_FLAG } from "../constants";
 
+
 const FriendCard = ({ friend }) => {
+  const queryClient = useQueryClient();
+
+  
+
   return (
     <div className="card bg-base-200 hover:shadow-md transition-shadow">
       <div className="card-body p-4">
@@ -14,6 +21,7 @@ const FriendCard = ({ friend }) => {
           <h3 className="font-semibold truncate">{friend.fullName}</h3>
         </div>
 
+        {/* Language info */}
         <div className="flex flex-wrap gap-1.5 mb-3">
           <span className="badge badge-secondary text-xs">
             {getLanguageFlag(friend.nativeLanguage)}
@@ -25,16 +33,20 @@ const FriendCard = ({ friend }) => {
           </span>
         </div>
 
+        {/* Message button */}
         <Link to={`/chat/${friend._id}`} className="btn btn-outline w-full">
           Message
         </Link>
+
+      
       </div>
     </div>
   );
 };
+
 export default FriendCard;
 
-export function getLanguageFlag(language) {
+function getLanguageFlag(language) {
   if (!language) return null;
 
   const langLower = language.toLowerCase();
@@ -51,3 +63,6 @@ export function getLanguageFlag(language) {
   }
   return null;
 }
+
+
+export { getLanguageFlag };

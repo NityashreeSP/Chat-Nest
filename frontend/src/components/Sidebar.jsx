@@ -4,7 +4,7 @@ import {
   BellIcon,
   HomeIcon,
   ShipWheelIcon,
-  UsersIcon,
+  
   PencilIcon // 🆕 Icon for onboarding
 } from "lucide-react";
 
@@ -19,7 +19,7 @@ const Sidebar = () => {
         <Link to="/" className="flex items-center gap-2.5">
           <ShipWheelIcon className="size-9 text-primary" />
           <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-            Streamify
+            Chat Nest
           </span>
         </Link>
       </div>
@@ -35,15 +35,7 @@ const Sidebar = () => {
           <span>Home</span>
         </Link>
 
-        <Link
-          to="/friends"
-          className={`btn btn-ghost justify-start w-full gap-3 px-3 normal-case ${
-            currentPath === "/friends" ? "btn-active" : ""
-          }`}
-        >
-          <UsersIcon className="size-5 text-base-content opacity-70" />
-          <span>Friends</span>
-        </Link>
+        
 
         <Link
           to="/notifications"

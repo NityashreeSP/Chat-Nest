@@ -1,4 +1,3 @@
-
 import { axiosInstance } from "./axios";
 
 export const signup = async (signupData) => {
@@ -46,15 +45,9 @@ export async function getOutgoingFriendReqs() {
 }
 
 export async function sendFriendRequest(userId) {
-  const response = await axiosInstance.post(
-    `/users/friend-request/${userId}`,
-    {}, // or include required data here
-    { withCredentials: true } // if using cookie/session-based auth
-  );
-  console.log("Friend request sent:", response.data);
+  const response = await axiosInstance.post(`/users/friend-request/${userId}`);
   return response.data;
 }
-
 
 export async function getFriendRequests() {
   const response = await axiosInstance.get("/users/friend-requests");

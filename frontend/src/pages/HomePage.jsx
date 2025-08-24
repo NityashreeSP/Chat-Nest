@@ -13,8 +13,6 @@ import { capitialize } from "../lib/utils";
 
 import FriendCard, { getLanguageFlag } from "../components/FriendCard";
 import NoFriendsFound from "../components/NoFriendsFound";
-import { CameraIcon } from "@heroicons/react/24/outline";
-
 
 const HomePage = () => {
   const queryClient = useQueryClient();
@@ -51,7 +49,7 @@ const HomePage = () => {
   }, [outgoingFriendReqs]);
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8">
+    <div className="p-4 sm:p-6 lg:p-8   bg-base-100  ">
       <div className="container mx-auto space-y-10">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Your Friends</h2>
@@ -110,20 +108,9 @@ const HomePage = () => {
                   >
                     <div className="card-body p-5 space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="avatar size-16 rounded-full overflow-hidden border border-base-300 flex items-center justify-center bg-base-200">
-  {user.profilePic && !user.profilePicError ? (
-  <img
-    src={user.profilePic}
-    alt={user.fullName}
-    className="w-full h-full object-cover"
-    onError={() => user.profilePicError = true}
-  />
-) : (
-  <CameraIcon className="w-8 h-8 text-base-content opacity-50" />
-)}
-
-</div>
-
+                        <div className="avatar size-16 rounded-full">
+                          <img src={user.profilePic} alt={user.fullName} />
+                        </div>
 
                         <div>
                           <h3 className="font-semibold text-lg">{user.fullName}</h3>
